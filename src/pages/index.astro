@@ -1,6 +1,9 @@
 ---
 import Feature from '@/components/Feature.astro';
 import Layout from '../layouts/Layout.astro';
+import story1 from '@/assets/img/story/story-1.jpeg';
+import story2 from '@/assets/img/story/story-2.jpeg';
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="Nexter — your home, your freedom">
@@ -19,7 +22,10 @@ import Layout from '../layouts/Layout.astro';
     <Feature id="6" />
   </section>
 
-  <div class="pictures">pic</div>
+  <div class="pictures">
+    <Image class="image-1" src={story1} alt="Couple with new house" />
+    <Image class="image-2" src={story2} alt="New house" />
+  </div>
   <div class="content">
     <h3>Happy Customers</h3>
     <h2 class="dark">&ldquo;The best decision of our lives&rdquo;</h2>
