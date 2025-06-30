@@ -7,7 +7,7 @@ const feature = features.find((feature) => feature.id === id);
 
 <div class="feature">
   <svg class="icon">
-    <use xlink:href={feature?.icon}></use>
+    <use xlink:href={`/icons/sprite.svg#icon-${feature?.icon}`}></use>
   </svg>
   <h4 class="dark">{feature?.title}</h4>
   <p>
