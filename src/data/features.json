@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "icon": "/public/icons/sprite.svg#icon-global",
+    "title": "World's best luxury homes"
+  },
+  {
+    "id": "2",
+    "icon": "/public/icons/sprite.svg#icon-trophy",
+    "title": "Only the best properties"
+  },
+  {
+    "id": "3",
+    "icon": "/public/icons/sprite.svg#icon-map-pin",
+    "title": "All homes in top locations"
+  },
+  {
+    "id": "4",
+    "icon": "/public/icons/sprite.svg#icon-key",
+    "title": "New home in one week"
+  },
+  {
+    "id": "5",
+    "icon": "/public/icons/sprite.svg#icon-presentation",
+    "title": "Top 1% realtors"
+  },
+  {
+    "id": "6",
+    "icon": "/public/icons/sprite.svg#icon-lock",
+    "title": "Secure payments on nexter"
+  }
+]

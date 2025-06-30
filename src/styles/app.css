@@ -1,4 +1,10 @@
 @import 'variables.css' layer(variables);
 @import 'base.css' layer(base);
-
-/* @import 'layout.css' layer(layout); */
+@import 'layouts/sidebar.css' layer(sidebar);
+@import 'layouts/header.css' layer(header);
+@import 'layouts/realtors.css' layer(realtors);
+@import 'layouts/features.css' layer(features);
+@import 'layouts/story.css' layer(story);
+@import 'layouts/homes.css' layer(homes);
+@import 'layouts/gallery.css' layer(gallery);
+@import 'layouts/footer.css' layer(footer);

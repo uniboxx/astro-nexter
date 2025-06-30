@@ -1,15 +1,29 @@
 @font-face {
   font-style: normal;
   font-weight: 200 1000;
+  src: url('/fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-family: Nunito;
+  font-display: swap;
+}
+@font-face {
+  font-style: italic;
+  font-weight: 200 1000;
+  src: url('/fonts/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+  font-family: Nunito;
+  font-display: swap;
+}
+@font-face {
+  font-style: normal;
+  font-weight: 100 700;
   src: url('/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
   font-family: Josefin Sans;
   font-display: swap;
 }
 @font-face {
-  font-style: normal;
-  font-weight: 200 1000;
-  src: url('/fonts/Nunito-VariableFont_wght.ttf') format('truetype');
-  font-family: Nunito;
+  font-style: italic;
+  font-weight: 100 700;
+  src: url('/fonts/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype');
+  font-family: Josefin Sans;
   font-display: swap;
 }
 
@@ -35,19 +49,27 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: linear-gradient(
-      to right bottom,
-      var(--color-primary-light),
-      var(--color-primary-dark)
-    )
-    no-repeat center / cover;
-
   color: var(--color-gray-dark-2);
-  font-weight: 400;
-  line-height: 1.7;
+  font-weight: 300;
+  line-height: 1.6;
   font-family: var(--font-primary);
-
-  @media screen and (min-width: 40rem) {
+  &.container {
+    display: grid;
+    grid-template-rows: 4rem;
+    grid-template-columns:
+      [center-start] repeat(8, [col-start] minmax(min-content, 4rem) [col-end])
+      [center-end];
+    @media screen and (min-width: 40rem) {
+      grid-template-rows: 80svh min-content 40svw repeat(3, min-content);
+      grid-template-columns:
+        [sidebar-start] 4rem [sidebar-end full-start] minmax(3rem, 1fr)
+        [center-start] repeat(
+          8,
+          [col-start] minmax(min-content, 7rem) [col-end]
+        )
+        [center-end] minmax(3rem, 1fr)
+        [full-end];
+    }
   }
 }
 a,
@@ -101,4 +123,22 @@ img,
 video {
   max-width: 100%;
   height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  font-family: var(--font-display);
+}
+
+h4 {
+  font-size: 0.95rem;
+  &.light {
+    color: var(--color-gray-light-1);
+  }
+  &.dark {
+    color: var(--color-gray-dark-1);
+  }
 }

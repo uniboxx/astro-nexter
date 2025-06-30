@@ -1,5 +1,30 @@
 ---
+import Feature from '@/components/Feature.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Nexter | Your all-in-one booking app">Nexter</Layout>
+<Layout title="Nexter — your home, your freedom">
+  <div class="sidebar">sidebar</div>
+
+  <header class="header">Header</header>
+
+  <div class="realtors">Top 3 realtors</div>
+
+  <section class="features">
+    <Feature id="1" />
+    <Feature id="2" />
+    <Feature id="3" />
+    <Feature id="4" />
+    <Feature id="5" />
+    <Feature id="6" />
+  </section>
+
+  <div class="pictures">pic</div>
+  <div class="content">content</div>
+
+  <section class="homes">homes</section>
+
+  <section class="gallery">gallery</section>
+
+  <footer class="footer">Footer</footer>
+</Layout>

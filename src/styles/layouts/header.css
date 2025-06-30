@@ -1,0 +1,7 @@
+.header {
+  grid-column: 1/-1;
+  @media screen and (min-width: 40rem) {
+    grid-column: full-start/col-end 6;
+    background-color: var(--color-gray-dark-1);
+  }
+}

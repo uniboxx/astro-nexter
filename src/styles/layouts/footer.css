@@ -1,0 +1,7 @@
+.footer {
+  grid-column: 1/-1;
+  background-color: var(--color-secondary);
+  @media screen and (min-width: 40rem) {
+    grid-column: full-start/full-end;
+  }
+}

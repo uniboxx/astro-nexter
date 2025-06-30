@@ -5,11 +5,11 @@
 
   --color-secondary: lch(10.34% 11.81 269.16);
 
-  --color-grey-light-1: lch(97.36% 0.86 54.93);
-  --color-grey-light-2: lch(69.61% 0.01 296.81);
+  --color-gray-light-1: lch(97.36% 0.86 54.93);
+  --color-gray-light-2: lch(69.61% 0.01 296.81);
 
-  --color-grey-dark-1: lch(31.41% 10.6 75.84);
-  --color-grey-dark-2: lch(40.55% 13.21 74.77);
+  --color-gray-dark-1: lch(31.41% 10.6 75.84);
+  --color-gray-dark-2: lch(40.55% 13.21 74.77);
 
   /* FONT VARIABLES */
   --font-primary: 'Nunito', sans-serif;

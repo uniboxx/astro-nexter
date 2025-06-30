@@ -1,0 +1,42 @@
+---
+import features from '@/data/features.json';
+
+const { id } = Astro.props;
+const feature = features.find((feature) => feature.id === id);
+---
+
+<div class="feature">
+  <svg class="icon">
+    <use xlink:href={feature?.icon}></use>
+  </svg>
+  <h4 class="dark">{feature?.title}</h4>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, enim. Et
+    reiciendis incidunt suscipit necessitatibus tempore.
+  </p>
+</div>
+
+<style>
+  .feature {
+    display: grid;
+    grid-template-rows: repeat(2, min-content);
+    grid-template-columns: min-content 1fr;
+
+    gap: 0.75rem 1.25rem;
+    padding: 0 10px;
+    .icon {
+      fill: var(--color-primary);
+      grid-row: 1/-1;
+      transform: translateY(-0.5rem);
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+    @media screen and (min-width: 40rem) {
+      padding: 0;
+    }
+  }
+</style>

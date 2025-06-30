@@ -1,0 +1,16 @@
+.pictures {
+  grid-column: 1/-1;
+  background-color: var(--color-primary);
+}
+.content {
+  grid-column: 1/-1;
+  background-color: var(--color-gray-light-1);
+}
+@media screen and (min-width: 40rem) {
+  .pictures {
+    grid-column: full-start/col-end 4;
+  }
+  .content {
+    grid-column: col-start 5 / full-end;
+  }
+}
