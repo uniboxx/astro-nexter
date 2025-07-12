@@ -7,6 +7,11 @@ import { Image } from 'astro:assets';
 import HomeCard from '@/components/HomeCard.astro';
 import features from '@/data/features.json';
 import houses from '@/data/homes.json';
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>(
+  '@/assets/img/gallery/*.jpeg'
+);
+
+const galleryFuncs = Object.values(galleryImages);
 ---
 
 <Layout title="Nexter — your home, your freedom">
@@ -41,7 +46,18 @@ import houses from '@/data/homes.json';
     {houses.length > 0 && houses.map((house) => <HomeCard house={house} />)}
   </section>
 
-  <section class="gallery">gallery</section>
+  <section id="gallery">
+    {
+      galleryFuncs.length > 0 &&
+        galleryFuncs.map((image, idx) => (
+          <Image
+            class:list={`gallery-img gallery-img-${idx + 1}`}
+            src={image()}
+            alt={`Gallery item ${idx + 1}`}
+          />
+        ))
+    }
+  </section>
 
-  <footer class="footer">Footer</footer>
+  <footer id="footer">Footer</footer>
 </Layout>
