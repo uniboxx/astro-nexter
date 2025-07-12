@@ -57,7 +57,10 @@ body {
     display: grid;
     grid-template-rows: 4rem;
     grid-template-columns:
-      [center-start] repeat(8, [col-start] minmax(min-content, 4rem) [col-end])
+      [center-start] repeat(
+        8,
+        [col-start] minmax(min-content, 4.5rem) [col-end]
+      )
       [center-end];
     @media screen and (min-width: 40rem) {
       grid-template-rows: 80svh min-content auto repeat(3, min-content);

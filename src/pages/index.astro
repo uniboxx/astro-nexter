@@ -4,6 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import story1 from '@/assets/img/story/story-1.jpeg';
 import story2 from '@/assets/img/story/story-2.jpeg';
 import { Image } from 'astro:assets';
+import HomeCard from '@/components/HomeCard.astro';
+import houses from '@/data/homes.json';
 ---
 
 <Layout title="Nexter — your home, your freedom">
@@ -36,7 +38,14 @@ import { Image } from 'astro:assets';
     <button class="btn">Find your own home</button>
   </div>
 
-  <section class="homes">homes</section>
+  <section id="homes">
+    <HomeCard house={houses[0]} />
+    <HomeCard house={houses[1]} />
+    <HomeCard house={houses[2]} />
+    <HomeCard house={houses[3]} />
+    <HomeCard house={houses[4]} />
+    <HomeCard house={houses[5]} />
+  </section>
 
   <section class="gallery">gallery</section>
 

@@ -1,0 +1,104 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+const { house } = Astro.props;
+const houseImages = import.meta.glob<{ default: ImageMetadata }>(
+  '@/assets/img/houses/*.jpeg'
+);
+
+const imageFunction = houseImages[`/src/assets/img/houses/${house.image}`];
+const imageUrl = imageFunction();
+---
+
+<div class="home">
+  <Image class="home-img" src={imageUrl} alt={house.name} />
+  <svg class="home-like">
+    <use xlink:href="/icons/sprite.svg#icon-heart-full"></use>
+  </svg>
+  <h5 class="home-name">{house.name}</h5>
+  <div class="home-location">
+    <svg>
+      <use xlink:href="/icons/sprite.svg#icon-map-pin"></use>
+    </svg>
+    <p>{house.location}</p>
+  </div>
+  <div class="home-rooms">
+    <svg>
+      <use xlink:href="/icons/sprite.svg#icon-profile-male"></use>
+    </svg>
+    <p>{house.rooms} rooms</p>
+  </div>
+  <div class="home-area">
+    <svg>
+      <use xlink:href="/icons/sprite.svg#icon-expand"></use>
+    </svg>
+    <p>{house.area} m<sup>2</sup></p>
+  </div>
+  <div class="home-price">
+    <svg>
+      <use xlink:href="/icons/sprite.svg#icon-key"></use>
+    </svg>
+    <p>€{house.price.replaceAll(',', '.')}</p>
+  </div>
+  <button class="btn cta">Contact realtor</button>
+</div>
+
+<style>
+  .home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.75rem;
+    background-color: var(--color-gray-light-1);
+
+    & > div {
+      display: flex;
+
+      gap: 0.5rem;
+      margin-left: 1rem;
+      font-size: 0.75rem;
+    }
+
+    .home-img,
+    .home-name,
+    .home-like,
+    .cta {
+      grid-column: 1/-1;
+    }
+    .home-img,
+    .home-like,
+    .home-name {
+      grid-row: 1/2;
+    }
+
+    svg {
+      fill: var(--color-primary);
+      width: 1rem;
+      height: 1rem;
+    }
+    .home-like {
+      justify-self: end;
+      z-index: 10;
+      margin: 0.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    .home-name {
+      align-self: end;
+      justify-self: center;
+      transform: translateY(50%);
+      background-color: var(--color-secondary);
+      padding: 0.625rem;
+      width: 80%;
+      color: var(--color-gray-light-1);
+      font-weight: 400;
+      font-size: 0.8rem;
+      font-family: var(--font-display);
+      text-align: center;
+    }
+    .home-location,
+    .home-rooms {
+      margin-top: 1.25rem;
+    }
+  }
+</style>

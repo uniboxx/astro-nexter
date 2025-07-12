@@ -1,7 +1,13 @@
-.homes {
+#homes {
+  display: grid;
+  row-gap: 2rem;
   grid-column: 1/-1;
-  background-color: var(--color-secondary);
+  margin: 2.5rem auto;
+
   @media screen and (min-width: 40rem) {
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
     grid-column: center-start/center-end;
+    gap: 3.5rem;
+    margin: 7.5rem auto;
   }
 }
