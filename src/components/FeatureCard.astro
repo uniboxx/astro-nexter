@@ -1,8 +1,5 @@
 ---
-import features from '@/data/features.json';
-
-const { id } = Astro.props;
-const feature = features.find((feature) => feature.id === id);
+const { feature } = Astro.props;
 ---
 
 <div class="feature">

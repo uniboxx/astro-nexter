@@ -1,10 +1,11 @@
 ---
-import Feature from '@/components/Feature.astro';
+import FeatureCard from '@/components/FeatureCard.astro';
 import Layout from '../layouts/Layout.astro';
 import story1 from '@/assets/img/story/story-1.jpeg';
 import story2 from '@/assets/img/story/story-2.jpeg';
 import { Image } from 'astro:assets';
 import HomeCard from '@/components/HomeCard.astro';
+import features from '@/data/features.json';
 import houses from '@/data/homes.json';
 ---
 
@@ -16,12 +17,10 @@ import houses from '@/data/homes.json';
   <div class="realtors">Top 3 realtors</div>
 
   <section class="features">
-    <Feature id="1" />
-    <Feature id="2" />
-    <Feature id="3" />
-    <Feature id="4" />
-    <Feature id="5" />
-    <Feature id="6" />
+    {
+      features.length > 0 &&
+        features.map((feature) => <FeatureCard feature={feature} />)
+    }
   </section>
 
   <div class="pictures">
@@ -39,12 +38,7 @@ import houses from '@/data/homes.json';
   </div>
 
   <section id="homes">
-    <HomeCard house={houses[0]} />
-    <HomeCard house={houses[1]} />
-    <HomeCard house={houses[2]} />
-    <HomeCard house={houses[3]} />
-    <HomeCard house={houses[4]} />
-    <HomeCard house={houses[5]} />
+    {houses.length > 0 && houses.map((house) => <HomeCard house={house} />)}
   </section>
 
   <section class="gallery">gallery</section>
