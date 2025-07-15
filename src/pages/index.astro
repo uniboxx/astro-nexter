@@ -7,11 +7,18 @@ import { Image } from 'astro:assets';
 import HomeCard from '@/components/HomeCard.astro';
 import features from '@/data/features.json';
 import houses from '@/data/homes.json';
+import Logo from '@/assets/img/logo.png';
+
 const galleryImages = import.meta.glob<{ default: ImageMetadata }>(
   '@/assets/img/gallery/*.jpeg'
 );
 
 const galleryFuncs = Object.values(galleryImages);
+const headerLogos = import.meta.glob<{ default: ImageMetadata }>(
+  '@/assets/img/header-logos/*.png'
+);
+
+const headerLogosFuncs = Object.values(headerLogos);
 ---
 
 <Layout title="Nexter — your home, your freedom">
@@ -19,7 +26,21 @@ const galleryFuncs = Object.values(galleryImages);
     <button class="btn-nav"></button>
   </div>
 
-  <header class="header">Header</header>
+  <header class="header">
+    <Image class="logo" src={Logo} alt="Nexter logo" />
+    <h3>Your own home:</h3>
+    <h1>The ultimate personal freedom</h1>
+    <button class="btn">View our properties</button>
+    <div class="caption">As seen on</div>
+    <div class="logos">
+      {
+        headerLogosFuncs.length > 0 &&
+          headerLogosFuncs.map((logo, idx) => (
+            <Image src={logo()} alt={`Seen on logo ${idx + 1}`} />
+          ))
+      }
+    </div>
+  </header>
 
   <div class="realtors">Top 3 realtors</div>
 

@@ -143,6 +143,11 @@ h4 {
   }
 }
 
+h1 {
+  color: var(--color-gray-light-1);
+  font-size: 2.25rem
+}
+
 h2 {
   font-style: italic;
   font-size: 2rem;
