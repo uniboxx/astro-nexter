@@ -1,6 +1,40 @@
 #footer {
   grid-column: 1/-1;
+
   background-color: var(--color-secondary);
+  padding: 4rem;
+
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+    align-items: center;
+    gap: 1rem;
+
+    .link {
+      display: block;
+      transition: 0.2s;
+      padding: 0.75rem;
+
+      color: white;
+      font-size: 0.7rem;
+      font-family: var(--font-display);
+      text-align: center;
+      text-transform: uppercase;
+      &:hover,
+      &:active {
+        transform: translateY(-3px);
+        background-color: lch(100% 0.01 296.81 / 0.05);
+      }
+    }
+  }
+  .copy {
+    margin: 3rem auto;
+    margin-bottom: 0;
+    width: 70%;
+    color: var(--color-gray-light-2);
+    font-size: 0.7rem;
+    text-align: center;
+  }
   @media screen and (min-width: 40rem) {
     grid-column: full-start/full-end;
   }
