@@ -1,11 +1,13 @@
 .sidebar {
+  display: flex;
   grid-column: 1/-1;
+  justify-content: end;
+  align-items: center;
   background-color: var(--color-primary);
 
   .btn-nav {
     display: block;
-    margin: 0 auto;
-    margin-top: 2rem;
+    margin-right: 1rem;
     background-color: white;
     width: 2.25rem;
     height: 2px;
@@ -27,5 +29,11 @@
   @media screen and (min-width: 40rem) {
     grid-row: 1/-1;
     grid-column: sidebar-start/sidebar-end;
+    justify-content: center;
+    align-items: start;
+    .btn-nav {
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
   }
 }
