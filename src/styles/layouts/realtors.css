@@ -1,6 +1,16 @@
-.realtors {
+#realtors {
+  display: flex;
   grid-column: 1/-1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: var(--color-secondary);
+  padding: 1.5rem;
+  h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
   @media screen and (min-width: 40rem) {
     grid-column: col-start 7 / full-end;
   }

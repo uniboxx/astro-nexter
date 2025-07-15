@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+
+const { realtor } = Astro.props;
+const realtorsImages = import.meta.glob<{ default: ImageMetadata }>(
+  '@/assets/img/realtors/*.jpeg'
+);
+const realtorImage =
+  realtorsImages[`/src/assets/img/realtors/${realtor.image}`];
+const imageUrl = realtorImage();
+---
+
+<div class="realtor">
+  <Image class="img" src={imageUrl} alt={realtor.name} />
+  <div class="details">
+    <h4 class="name">{realtor.name}</h4>
+    <p class="sold">{realtor.sold} houses sold</p>
+  </div>
+</div>
+
+<style>
+  .realtor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+    .img {
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    .details {
+      .name {
+        color: white;
+      }
+      .sold {
+        color: var(--color-gray-light-2);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+</style>

@@ -8,16 +8,17 @@ import HomeCard from '@/components/HomeCard.astro';
 import features from '@/data/features.json';
 import houses from '@/data/homes.json';
 import Logo from '@/assets/img/logo.png';
+import realtors from '@/data/realtors.json';
+import RealtorCard from '@/components/RealtorCard.astro';
 
 const galleryImages = import.meta.glob<{ default: ImageMetadata }>(
   '@/assets/img/gallery/*.jpeg'
 );
-
 const galleryFuncs = Object.values(galleryImages);
+
 const headerLogos = import.meta.glob<{ default: ImageMetadata }>(
   '@/assets/img/header-logos/*.png'
 );
-
 const headerLogosFuncs = Object.values(headerLogos);
 ---
 
@@ -36,13 +37,25 @@ const headerLogosFuncs = Object.values(headerLogos);
       {
         headerLogosFuncs.length > 0 &&
           headerLogosFuncs.map((logo, idx) => (
-            <Image src={logo()} alt={`Seen on logo ${idx + 1}`} />
+            <Image
+              class:list={`logo logo-${idx + 1}`}
+              src={logo()}
+              alt={`Logo ${idx + 1}`}
+            />
           ))
       }
     </div>
   </header>
 
-  <div class="realtors">Top 3 realtors</div>
+  <div id="realtors">
+    <h3>Top 3 realtors</h3>
+    <div class="realtors-list">
+      {
+        realtors.length > 0 &&
+          realtors.map((realtor) => <RealtorCard realtor={realtor} />)
+      }
+    </div>
+  </div>
 
   <section class="features">
     {
